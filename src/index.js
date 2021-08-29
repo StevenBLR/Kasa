@@ -1,18 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/Header';
+import HeaderStyle from './components/Header';
 import './index.css';
 import Home from './pages/Home';
+import Logement from './pages/Housing';
 import reportWebVitals from './reportWebVitals';
+import GlobalStyle from './utils/style/GlobalStyle';
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-            <Header />
+            <GlobalStyle />
+            <HeaderStyle />
             <Switch>
                 <Route exact path="/">
                     <Home />
+                </Route>
+                <Route path="/housing/:id">
+                    <Logement />
                 </Route>
             </Switch>
         </Router>

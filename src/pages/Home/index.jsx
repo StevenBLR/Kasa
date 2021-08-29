@@ -1,8 +1,9 @@
 import { Component } from 'react';
+import Banner from '../../components/Banner';
 
 class Home extends Component {
     render() {
-        return <p>Page accueil</p>;
+        return <Banner />;
     }
 }
 
