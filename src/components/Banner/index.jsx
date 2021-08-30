@@ -18,6 +18,7 @@ const BannerStyled = styled.div`
     h1 {
         //color: white;
         font-size: 2.5rem;
+        margin: 40px;
     }
 `;
 
