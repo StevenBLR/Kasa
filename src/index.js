@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderStyle from './components/Header';
 import './index.css';
@@ -11,6 +12,13 @@ import GlobalStyle from './utils/style/GlobalStyle';
 
 ReactDOM.render(
     <React.StrictMode>
+        <Helmet>
+            <title>Kasa</title>
+            <meta
+                name="viewport"
+                content="width=device-width,initial-scale=1"
+            />
+        </Helmet>
         <Router>
             <GlobalStyle />
             <HeaderStyle />
