@@ -9,14 +9,15 @@ const GridStyle = styled.div`
     justify-content: space-around;
     margin-top: 40px;
     padding: 40px;
+    border-radius: 10px;
     background-color: ${colors.bgGray};
 `;
 
 const GridItemStyle = styled.div`
     display: flex;
     align-items: flex-end;
-    width: 340px;
-    height: 340px;
+    width: 300px;
+    height: 300px;
     border-radius: 10px;
     box-sizing: border-box;
     margin: 25px;
@@ -24,7 +25,9 @@ const GridItemStyle = styled.div`
     background-color: ${colors.primary};
     background-position: center;
     h2 {
+        font-size: 18px;
         padding: 25px;
+        text-shadow: 2px 2px black;
         width: 60%;
         margin: 0;
     }

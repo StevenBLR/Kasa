@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderStyle from './components/Header';
 import './index.css';
+import About from './pages/About';
 import Home from './pages/Home';
 import Logement from './pages/Logement';
 import reportWebVitals from './reportWebVitals';
@@ -19,6 +20,9 @@ ReactDOM.render(
                 </Route>
                 <Route path="/housing/:id">
                     <Logement />
+                </Route>
+                <Route>
+                    <About path="/about" />
                 </Route>
             </Switch>
         </Router>

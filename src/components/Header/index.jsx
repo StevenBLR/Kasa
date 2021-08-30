@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../assets/LOGO.svg';
 import colors from '../../utils/style/colors';
@@ -28,8 +29,8 @@ class Header extends Component {
             <HeaderStyle className="header">
                 <img src={logo} alt="logo" className="header__logo" />
                 <HeaderBts className="header__bts">
-                    <a href="#">Accueil</a>
-                    <a href="#">A Propos</a>
+                    <Link to="/">Accueil</Link>
+                    <Link to="/about">A Propos</Link>
                 </HeaderBts>
             </HeaderStyle>
         );
