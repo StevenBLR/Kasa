@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderStyle from './components/Header';
 import './index.css';
 import Home from './pages/Home';
-import Logement from './pages/Housing';
+import Logement from './pages/Logement';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from './utils/style/GlobalStyle';
 
