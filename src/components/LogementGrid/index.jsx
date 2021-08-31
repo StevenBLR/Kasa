@@ -2,6 +2,7 @@ import { Component } from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 import logements from '../../data/logements.json';
+import { Link } from 'react-router-dom';
 
 const GridStyle = styled.div`
     display: flex;
@@ -13,7 +14,7 @@ const GridStyle = styled.div`
     background-color: ${colors.bgGray};
 `;
 
-const GridItemStyle = styled.div`
+const GridItemStyle = styled(Link)`
     display: flex;
     align-items: flex-end;
     width: 300px;
@@ -41,15 +42,11 @@ export class LogementGrid extends Component {
             <GridStyle className="lgmt-grid">
                 {logements.map((lgmt) => (
                     <GridItemStyle
+                        to={`/housing/${lgmt.id}`}
                         className="lgmt-grid__card"
                         key={lgmt.id}
                         style={{ backgroundImage: `url(${lgmt.cover})` }}
                     >
-                        {/* <img
-                            src={lgmt.cover}
-                            alt={lgmt.title + ' img'}
-                            className="lgmt-grid__img"
-                        /> */}
                         <h2>{lgmt.title}</h2>
                     </GridItemStyle>
                 ))}
