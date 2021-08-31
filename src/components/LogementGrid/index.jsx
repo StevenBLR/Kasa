@@ -7,7 +7,7 @@ const GridStyle = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 40px;
+    margin: 40px 0;
     padding: 10px;
     border-radius: 10px;
     background-color: ${colors.bgGray};

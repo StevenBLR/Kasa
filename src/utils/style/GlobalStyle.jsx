@@ -1,8 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 const base = `
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
  *{
-    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
   }
 
   a {
@@ -11,6 +13,7 @@ const base = `
 
   body {
       margin: 40px;
+      margin-bottom: 0;
       max-width: 1240px;
   }
 `;
@@ -20,6 +23,7 @@ const responsive = `
 @media (min-width: 1330px) {
   body{
     margin: 40px auto;
+    margin-bottom: 0;
   }
 }
 
@@ -27,7 +31,7 @@ const responsive = `
 @media (max-width: 800px) {
   .header .header__logo{
     width: 20vw;
-    min-width: 100px;
+    min-width: 120px;
   }
 
   .header__bts a{
@@ -35,8 +39,16 @@ const responsive = `
     margin-left: clamp(11px,5vw,40px);
 
   }
+  main .lgmt-grid{
+    padding: 0;
+    margin-top: clamp(15px, 3vw, 40px);
+    background-color: transparent;
+  }
   .lgmt-grid .lgmt-grid__card{
     width: 100%;
+    margin: 0;
+    height: clamp(180px,40vw,230px);
+    margin-bottom: clamp(15px, 3vw, 40px);
   }
   .banner__bgImg .banner__headline{
     font-size: 24px;

@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HeaderStyle from './components/Header';
+import Header from './components/Header';
 import './index.css';
 import About from './pages/About';
+import Footer from './pages/Footer';
 import Home from './pages/Home';
 import Logement from './pages/Logement';
 import reportWebVitals from './reportWebVitals';
@@ -21,7 +22,7 @@ ReactDOM.render(
         </Helmet>
         <Router>
             <GlobalStyle />
-            <HeaderStyle />
+            <Header />
             <Switch>
                 <Route exact path="/">
                     <Home />
@@ -33,6 +34,7 @@ ReactDOM.render(
                     <About path="/about" />
                 </Route>
             </Switch>
+            <Footer />
         </Router>
     </React.StrictMode>,
     document.getElementById('root')

@@ -16,7 +16,7 @@ const BannerStyled = styled.div`
         background-image: url(${img});
     }
     h1 {
-        //color: white;
+        color: white;
         font-size: 2.5rem;
         margin: 40px;
     }

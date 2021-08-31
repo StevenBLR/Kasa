@@ -5,10 +5,10 @@ import LogementGrid from '../../components/LogementGrid';
 class Home extends Component {
     render() {
         return (
-            <div>
+            <main>
                 <Banner />
                 <LogementGrid />
-            </div>
+            </main>
         );
     }
 }
