@@ -11,12 +11,26 @@ const BannerStyled = styled.div`
         object-fit: cover;
         width: 100%;
         height: 180px;
-        filter: brightness(0.85);
+        position: relative;
+        overflow: hidden;
+        //filter: brightness(0.85);
         border-radius: 25px;
         background-image: url(${img});
     }
+    // Using before as a filter element
+    .banner__bgImg:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        background-color: teal;
+    }
+
     h1 {
         color: white;
+        position: relative; // Lui donne un z-index;
         font-size: 2.5rem;
         margin: 40px;
     }

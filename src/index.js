@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import './index.css';
 import About from './pages/About';
+import ErrorPage from './pages/ErrorPage';
 import Footer from './pages/Footer';
 import Home from './pages/Home';
 import Logement from './pages/Logement';
@@ -30,8 +31,11 @@ ReactDOM.render(
                 <Route path="/housing/:id">
                     <Logement />
                 </Route>
+                <Route path="/about">
+                    <About />
+                </Route>
                 <Route>
-                    <About path="/about" />
+                    <ErrorPage />
                 </Route>
             </Switch>
             <Footer />

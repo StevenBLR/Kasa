@@ -12,6 +12,13 @@ export class Logement extends Component {
         super(props);
         this.state = {};
     }
+
+    componentDidMount() {
+        console.log(window.location.href);
+        const urlParams = new URLSearchParams(window.location.href);
+        console.log(urlParams.get('id'));
+    }
+
     render() {
         return <BannerStyle />;
     }
