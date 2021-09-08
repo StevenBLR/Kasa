@@ -28,9 +28,7 @@ ReactDOM.render(
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route path="/housing/:id">
-                    <Logement />
-                </Route>
+                <Route path="/housing/:id" component={Logement} />
                 <Route path="/about">
                     <About />
                 </Route>
