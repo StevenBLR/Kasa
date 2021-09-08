@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import styled from 'styled-components';
-import img from '../../assets/bannerImg.png';
+// import img from '../../assets/bannerImg.png';
 
 const BannerStyled = styled.div`
     margin-top: 40px;
@@ -13,9 +13,8 @@ const BannerStyled = styled.div`
         height: 180px;
         position: relative;
         overflow: hidden;
-        //filter: brightness(0.85);
         border-radius: 25px;
-        background-image: url(${img});
+        background-size: cover;
     }
     // Using before as a filter element
     .banner__bgImg:before {
@@ -25,7 +24,7 @@ const BannerStyled = styled.div`
         width: 100%;
         height: 100%;
         opacity: 0.5;
-        background-color: teal;
+        background-color: rgb(25, 25, 25, 0.6); // Light gray
     }
 
     h1 {
@@ -37,13 +36,20 @@ const BannerStyled = styled.div`
 `;
 
 class Banner extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
     render() {
+        const { message, image } = this.props;
+        console.log(`${window.location}${image}`);
         return (
             <BannerStyled className="banner">
-                <div className="banner__bgImg">
-                    <h1 className="banner__headline">
-                        Chez vous, partout et ailleurs
-                    </h1>
+                <div
+                    className="banner__bgImg"
+                    style={{ backgroundImage: `url(${this.props.image})` }}
+                >
+                    <h1 className="banner__headline">{message}</h1>
                 </div>
             </BannerStyled>
         );
