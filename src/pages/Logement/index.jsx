@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
+import Banner from '../../components/Banner';
 import datas from '../../data/logements.json';
+import ErrorPage from '../ErrorPage/index';
 
 const BannerStyle = styled.img`
     object-fit: cover;
@@ -25,16 +27,21 @@ export class Logement extends Component {
     }
 
     render() {
+        // If lgmt id is found
         if (datas.find((d) => d.id == this.props.match.params.id)) {
             const dataSet = datas.find(
                 (d) => d.id == this.props.match.params.id
             );
 
-            console.log('Found item');
-            console.log('DataSet ? ', dataSet);
-            return <BannerStyle src={dataSet.cover} />;
-        } else {
-            return;
+            return (
+                <div>
+                    <Banner image={dataSet.cover} height="415" />
+                </div>
+            );
+        }
+        // Else show 404 error page
+        else {
+            return <ErrorPage />;
         }
     }
 }

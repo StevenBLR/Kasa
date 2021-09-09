@@ -1,6 +1,22 @@
 import { Component } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 // import img from '../../assets/bannerImg.png';
+
+function FilterStyled(filterValue) {
+    const filterStyled = `
+    // Using before as a filter element
+    .banner__bgImg:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: ${filterValue};
+        background-color: rgb(25, 25, 25, 0.6); // Light gray
+    }
+`;
+    return filterStyled;
+}
 
 const BannerStyled = styled.div`
     margin-top: 40px;
@@ -16,6 +32,7 @@ const BannerStyled = styled.div`
         border-radius: 25px;
         background-size: cover;
     }
+
     // Using before as a filter element
     .banner__bgImg:before {
         content: '';
@@ -23,7 +40,7 @@ const BannerStyled = styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
-        opacity: 0.5;
+        opacity: ${({ filter }) => filter};
         background-color: rgb(25, 25, 25, 0.6); // Light gray
     }
 
@@ -41,13 +58,17 @@ class Banner extends Component {
         this.state = {};
     }
     render() {
-        const { message, image } = this.props;
+        const { message, image, height, filter = 0 } = this.props;
         console.log(`${window.location}${image}`);
+        console.log('Filter', filter);
         return (
-            <BannerStyled className="banner">
+            <BannerStyled className="banner" filter={filter}>
                 <div
                     className="banner__bgImg"
-                    style={{ backgroundImage: `url(${this.props.image})` }}
+                    style={{
+                        backgroundImage: `url(${this.props.image})`,
+                        height: `${height}px`,
+                    }}
                 >
                     <h1 className="banner__headline">{message}</h1>
                 </div>

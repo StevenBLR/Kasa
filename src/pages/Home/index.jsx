@@ -10,6 +10,7 @@ class Home extends Component {
                 <Banner
                     message="Chez vous, partout et ailleurs"
                     image={bannerImg}
+                    filter={0.5}
                 />
                 <LogementGrid />
             </main>
