@@ -1,44 +1,83 @@
 import { Component } from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
+import Buttons from '../Buttons';
 
-const DropdownStyled = styled.div`
-    display: flex;
-    max-width: 1000px;
-    margin: auto;
-
-    margin-block: 20px;
-    .dropdown__label {
-        display: flex;
-        align-items: center;
-        border-radius: 5px;
-        width: 100%;
-        height: 47px;
-        background-color: ${colors.primary};
-    }
-    .dropdown__label p {
-        font-size: 24px;
-        color: white;
-        margin-left: 20px;
-    }
-`;
-
-export class Dropdown extends Component {
+// PROPS ----------------------------------------------------------
+// title : Texte affiché sur le label
+// content : Texte affiché dans le dropdown
+// openOnStart : Booleen qui conditionne l'etat du dropdown
+// ----------------------------------------------------------------
+class Dropdown extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            isOpened: this.props.open,
+        };
     }
+
+    toggleDropdown = () => {
+        this.setState({ isOpened: !this.state.isOpened });
+        console.log(this.state.isOpened ? 'Fermé' : 'Ouvert');
+        return this.state.onClickisOpened;
+    };
     render() {
-        const { title, content } = this.props;
+        const { title, content, openOnStart } = this.props;
+        const { isOpened } = this.state;
         return (
-            <DropdownStyled className="dropdown">
+            <DropdownStyled className="dropdown" onClick={this.toggleDropdown}>
                 <div className="dropdown__label">
                     <p>{title}</p>
+                    <Buttons
+                        type="toggle"
+                        openOnStart={openOnStart}
+                        onClick={this.toggleDropdown}
+                    />
                 </div>
-                <div className="dropdown__content"></div>
+                {isOpened && (
+                    <div className="dropdown__content">
+                        <p>{content}</p>
+                    </div>
+                )}
             </DropdownStyled>
         );
     }
 }
 
 export default Dropdown;
+
+const DropdownStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+
+    font-size: 24px;
+    margin: auto;
+
+    margin-block: 20px;
+    .dropdown__label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+        border-radius: 5px;
+        width: 100%;
+        height: 47px;
+        background-color: ${colors.primary};
+    }
+    .dropdown__label p {
+        color: white;
+        margin-left: 20px;
+    }
+    .dropdown__content {
+        position: relative;
+        top: -5px;
+        border-radius: 0 0 5px 5px;
+        padding: 20px;
+        color: ${colors.primary};
+        background-color: ${colors.bgGray};
+    }
+
+    .button {
+    }
+`;

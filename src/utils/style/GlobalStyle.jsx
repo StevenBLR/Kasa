@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 const base = `
@@ -61,12 +62,23 @@ const responsive = `
 }
 `;
 
-function GlobalStyle() {
-    const AllGlobalStyle = createGlobalStyle`
-    ${base}
-    ${responsive}
-  `;
-    return <AllGlobalStyle />;
+class GlobalStyle extends Component {
+    componentDidMount() {
+        // Add Font awesome CDN
+        const script = document.createElement('script');
+        script.src = 'https://kit.fontawesome.com/3dfad0cb79.js';
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+        document.body.appendChild(script);
+    }
+    render() {
+        return <AllGlobalStyle />;
+    }
 }
 
 export default GlobalStyle;
+
+const AllGlobalStyle = createGlobalStyle`
+  ${base}
+  ${responsive}
+`;
