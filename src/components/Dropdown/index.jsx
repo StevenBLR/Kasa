@@ -24,6 +24,18 @@ class Dropdown extends Component {
     render() {
         const { title, content, openOnStart } = this.props;
         const { isOpened } = this.state;
+        if (typeof content == 'object') {
+            const processedContent = [];
+            content.map((c) => processedContent.push(<li>{c}</li>));
+            console.log(processedContent);
+        } else {
+            const processedContent = content;
+        }
+        // const processedContent = typeof content == "object" ?
+        // []
+
+        console.log('Type of content', typeof content);
+
         return (
             <DropdownStyled className="dropdown" onClick={this.toggleDropdown}>
                 <div className="dropdown__label">
@@ -36,6 +48,7 @@ class Dropdown extends Component {
                 </div>
                 {isOpened && (
                     <div className="dropdown__content">
+                        {/* Switch en fonction txt ou Obj */}
                         <p>{content}</p>
                     </div>
                 )}

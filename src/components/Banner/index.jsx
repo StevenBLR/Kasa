@@ -44,6 +44,7 @@ const BannerStyled = styled.div`
         overflow: hidden;
         border-radius: 25px;
         background-size: cover;
+        background-position: center;
         background-image: url(${({ image }) => image});
     }
 
