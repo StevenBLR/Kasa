@@ -18,23 +18,29 @@ class Buttons extends Component {
 
     render() {
         const {
-            type = 'simple',
+            type = 'button',
             icon,
+            id,
             state,
             titleColor = 'white',
             action,
         } = this.props;
 
         return (
-            <ButtonStyled className="button" titleColor={titleColor}>
+            <ButtonStyled titleColor={titleColor}>
                 {type == 'toggle' && (
-                    <input
-                        type="checkbox"
-                        class="button__check-box"
-                        onClick={action}
-                    ></input>
+                    <div>
+                        <input
+                            type="checkbox"
+                            class="button__check-box"
+                            onClick={action}
+                        ></input>
+                        <i
+                            class={`fas fa-chevron-${state ? 'up' : 'down'}`}
+                        ></i>
+                    </div>
                 )}
-                <i class={`fas fa-chevron-${state ? 'up' : 'down'}`}></i>
+                {type == 'button' && <i className={icon}></i>}
             </ButtonStyled>
         );
     }

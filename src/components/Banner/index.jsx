@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Children, Component } from 'react';
 import styled from 'styled-components';
 
 // PROPS ----------------------------------------------------------
@@ -24,6 +24,7 @@ class Banner extends Component {
                 <div className="banner__bgImg">
                     <h1 className="banner__headline">{message}</h1>
                 </div>
+                {this.props.children}
             </BannerStyled>
         );
     }

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
-import Buttons from '../Buttons';
+import Toggle from '../Buttons';
 
 // PROPS ----------------------------------------------------------
 // title : Texte affiché sur le label
@@ -34,7 +34,7 @@ class Dropdown extends Component {
             >
                 <div className="dropdown__label">
                     <p>{title}</p>
-                    <Buttons
+                    <Toggle
                         type="toggle"
                         state={isOpened}
                         action={this.toggleDropdown}

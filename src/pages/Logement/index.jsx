@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { Redirect } from 'react-router';
 import styled from 'styled-components';
 import Banner from '../../components/Banner';
+import Button from '../../components/Buttons';
 import Dropdown from '../../components/Dropdown';
 import RatingStars from '../../components/RatingStars';
 import Tag from '../../components/Tag';
@@ -12,17 +12,14 @@ import ErrorPage from '../ErrorPage/index';
 export class Logement extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            currentImgIndex: 0,
+        };
     }
 
-    // Tester id
-    // Si existant --> Maj
-    // Sinon --> Redirect erreur
-    componentDidMount() {
-        // console.log(window.location.href);
-        // const urlParams = new URLSearchParams(window.location.href);
-        // console.log(urlParams.get('id'));
-    }
+    processCarouselImg = () => {
+        return this.dataSet.pictures[this.currentImgIndex];
+    };
 
     render() {
         // If lgmt id is found
@@ -30,10 +27,24 @@ export class Logement extends Component {
             const dataSet = datas.find(
                 (d) => d.id == this.props.match.params.id
             );
-
+            let currentImg = dataSet.pictures[this.state.currentImgIndex];
             return (
                 <LgmtStyled>
-                    <Banner image={dataSet.cover} height="415" />
+                    <Banner image={currentImg} height="415">
+                        {dataSet.pictures.length > 1 && (
+                            <div className="banner__buttons">
+                                <Button
+                                    icon="fas fa-chevron-left"
+                                    id="banner__btn-left"
+                                />
+                                <Button
+                                    icon="fas fa-chevron-right"
+                                    id="banner__btn-right"
+                                />
+                            </div>
+                        )}
+                    </Banner>
+                    {/* <Carousel pictures={dataSet.pictures} height="415" /> */}
                     <div className="lgmt__infos">
                         <div className="lgmt__left-bloc">
                             <h1 className="lgmt__title">{dataSet.title}</h1>
@@ -151,9 +162,24 @@ const styleDropdownBloc = `
         }
 `;
 
+const styleCarouselBts = `
+    .banner__buttons i{
+        position: absolute;
+        color: black;
+        font-size: 40px;
+    }
+    .fa-chevron-left{
+        left: 0;
+    }
+    .fa-chevron-right{
+        right: 0;
+    }
+`;
+
 const LgmtStyled = styled.div`
     ${styleGeneral}
     ${styleLeftBloc}
     ${styleRightBloc}
     ${styleDropdownBloc}
+    ${styleCarouselBts}
 `;
