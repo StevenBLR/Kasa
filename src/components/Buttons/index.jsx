@@ -4,8 +4,9 @@ import styled from 'styled-components';
 // PROPS ----------------------------------------------------------
 // type : simple (1 etat) / toggle (2 etats)
 // icon : Classe Font Awesome qui definit l'icone a afficher
-// open : (toggle) Booleen qui conditionne l'icone a afficher
-// color : Couleur du bouton
+// titleColor : Couleur du titre
+// state : Etat du bouton ( Toggle = on/off )
+// action : Fonction appelée lors du click
 // ----------------------------------------------------------------
 class Buttons extends Component {
     constructor(props) {
@@ -15,38 +16,25 @@ class Buttons extends Component {
         };
     }
 
-    // toggleBt = () => {
-    //     this.setState({ toggleOn: this.onClick });
-    //     console.log('Hola');
-    //     return this.state.toggleOn;
-    // };
-
     render() {
         const {
             type = 'simple',
             icon,
-            openOnStart,
-            isOpened,
-            color = 'white',
-            onClick,
+            state,
+            titleColor = 'white',
+            action,
         } = this.props;
 
-        //if (type == 'simple')
         return (
-            <ButtonStyled className="button" color={color}>
+            <ButtonStyled className="button" titleColor={titleColor}>
                 {type == 'toggle' && (
                     <input
                         type="checkbox"
                         class="button__check-box"
-                        onClick={onClick}
+                        onClick={action}
                     ></input>
                 )}
-                {isOpened ? (
-                    <i class="fas fa-chevron-up"></i>
-                ) : (
-                    <i class="fas fa-chevron-down"></i>
-                )}
-                {/* <i class={`fas fa-chevron-${isOpened ? 'up' : 'down'}`}></i> */}
+                <i class={`fas fa-chevron-${state ? 'up' : 'down'}`}></i>
             </ButtonStyled>
         );
     }
@@ -61,7 +49,7 @@ const ButtonStyled = styled.div`
     position: relative;
     height: 100%;
     padding-inline: 10px;
-    color: ${({ color }) => color};
+    color: ${({ titleColor }) => titleColor};
 
     input {
         z-index: 10;

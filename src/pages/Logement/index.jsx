@@ -67,12 +67,14 @@ export class Logement extends Component {
                         <Dropdown
                             title="Description"
                             content={dataSet.description}
-                            open={true}
+                            contentSize="18px"
+                            openOnStart={true}
                         />
                         <Dropdown
                             title="Equipements"
                             content={dataSet.equipments}
-                            open={true}
+                            contentSize="18px"
+                            openOnStart={true}
                         />
                     </div>
                 </LgmtStyled>

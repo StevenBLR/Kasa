@@ -7,49 +7,51 @@ import Buttons from '../Buttons';
 // title : Texte affiché sur le label
 // content : Texte affiché dans le dropdown
 // openOnStart : Booleen qui conditionne l'etat du dropdown
+// contentSize : Taille de la police de contenu
 // ----------------------------------------------------------------
 class Dropdown extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpened: this.props.open,
+            // Edition de is open au montage ( 1ere fois ) / soit valeur entrée, soit false par defaut
+            isOpened: this.props.openOnStart || false,
         };
     }
-
+    // Change l'etat du dropdown (Ouvert / Ferme)
     toggleDropdown = () => {
         this.setState({ isOpened: !this.state.isOpened });
-        console.log(this.state.isOpened ? 'Fermé' : 'Ouvert');
-        return this.state.onClickisOpened;
     };
-    render() {
-        const { title, content, openOnStart } = this.props;
-        const { isOpened } = this.state;
-        if (typeof content == 'object') {
-            const processedContent = [];
-            content.map((c) => processedContent.push(<li>{c}</li>));
-            console.log(processedContent);
-        } else {
-            const processedContent = content;
-        }
-        // const processedContent = typeof content == "object" ?
-        // []
 
-        console.log('Type of content', typeof content);
+    render() {
+        const { title, content, contentSize } = this.props;
+        const { isOpened } = this.state;
 
         return (
-            <DropdownStyled className="dropdown" onClick={this.toggleDropdown}>
+            <DropdownStyled
+                className="dropdown"
+                onClick={this.toggleDropdown}
+                contentSize={contentSize}
+            >
                 <div className="dropdown__label">
                     <p>{title}</p>
                     <Buttons
                         type="toggle"
-                        openOnStart={openOnStart}
-                        onClick={this.toggleDropdown}
+                        state={isOpened}
+                        action={this.toggleDropdown}
                     />
                 </div>
                 {isOpened && (
                     <div className="dropdown__content">
                         {/* Switch en fonction txt ou Obj */}
-                        <p>{content}</p>
+                        {typeof content == 'object' ? (
+                            <ul>
+                                {content.map((c) => (
+                                    <li>{c}</li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>{content}</p>
+                        )}
                     </div>
                 )}
             </DropdownStyled>
@@ -82,6 +84,7 @@ const DropdownStyled = styled.div`
         color: white;
         margin-left: 20px;
     }
+
     .dropdown__content {
         position: relative;
         top: -5px;
@@ -90,7 +93,15 @@ const DropdownStyled = styled.div`
         color: ${colors.primary};
         background-color: ${colors.bgGray};
     }
-
+    .dropdown__content p,
+    .dropdown__content li {
+        // valeur heritée des props ou 24px par defaut
+        font-size: ${({ contentSize }) => contentSize || '24px'};
+    }
+    ul {
+        list-style-type: none;
+        padding: unset;
+    }
     .button {
     }
 `;
