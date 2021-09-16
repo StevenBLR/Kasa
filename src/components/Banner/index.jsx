@@ -34,6 +34,7 @@ export default Banner;
 
 const BannerStyled = styled.div`
     margin-top: 40px;
+    position: relative;
     .banner__bgImg {
         display: flex;
         justify-content: center;

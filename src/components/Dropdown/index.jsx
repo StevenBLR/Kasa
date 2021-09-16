@@ -65,7 +65,7 @@ const DropdownStyled = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 1000px;
-
+    cursor: pointer;
     font-size: 24px;
     margin: auto;
 

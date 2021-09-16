@@ -27,7 +27,7 @@ class Buttons extends Component {
         } = this.props;
 
         return (
-            <ButtonStyled titleColor={titleColor}>
+            <ButtonStyled className={type} titleColor={titleColor}>
                 {type == 'toggle' && (
                     <div>
                         <input
@@ -40,7 +40,7 @@ class Buttons extends Component {
                         ></i>
                     </div>
                 )}
-                {type == 'button' && <i className={icon}></i>}
+                {type == 'button' && <i className={icon} onClick={action}></i>}
             </ButtonStyled>
         );
     }
@@ -55,10 +55,12 @@ const ButtonStyled = styled.div`
     position: relative;
     height: 100%;
     padding-inline: 10px;
+    cursor: pointer;
     color: ${({ titleColor }) => titleColor};
 
     input {
         z-index: 10;
+        cursor: pointer;
         position: absolute;
         width: 100%;
         height: 100%;

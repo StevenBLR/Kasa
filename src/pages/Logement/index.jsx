@@ -13,20 +13,45 @@ export class Logement extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            dataSet: datas.find((d) => d.id == this.props.match.params.id),
             currentImgIndex: 0,
         };
     }
 
-    processCarouselImg = () => {
-        return this.dataSet.pictures[this.currentImgIndex];
+    previousImg = () => {
+        console.log('Current state', this.state.currentImgIndex);
+
+        if (this.state.currentImgIndex == 0) {
+            this.setState({
+                currentImgIndex: this.state.dataSet.pictures.length - 1,
+            });
+        } else
+            this.setState({ currentImgIndex: this.state.currentImgIndex - 1 });
+
+        console.log('Next state', this.state.currentImgIndex);
+    };
+
+    nextImg = () => {
+        console.log('Current state', this.state.currentImgIndex);
+
+        if (
+            this.state.currentImgIndex ==
+            this.state.dataSet.pictures.length - 1
+        ) {
+            this.setState({ currentImgIndex: 0 });
+        } else
+            this.setState({ currentImgIndex: this.state.currentImgIndex + 1 });
+
+        console.log('Next state', this.state.currentImgIndex);
     };
 
     render() {
+        const { dataSet } = this.state;
         // If lgmt id is found
         if (datas.find((d) => d.id == this.props.match.params.id)) {
-            const dataSet = datas.find(
-                (d) => d.id == this.props.match.params.id
-            );
+            // const dataSet = datas.find(
+            //     (d) => d.id == this.props.match.params.id
+            // );
             let currentImg = dataSet.pictures[this.state.currentImgIndex];
             return (
                 <LgmtStyled>
@@ -36,10 +61,12 @@ export class Logement extends Component {
                                 <Button
                                     icon="fas fa-chevron-left"
                                     id="banner__btn-left"
+                                    action={this.previousImg}
                                 />
                                 <Button
                                     icon="fas fa-chevron-right"
                                     id="banner__btn-right"
+                                    action={this.nextImg}
                                 />
                             </div>
                         )}
@@ -163,16 +190,23 @@ const styleDropdownBloc = `
 `;
 
 const styleCarouselBts = `
+    .banner__buttons{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+    }
     .banner__buttons i{
         position: absolute;
-        color: black;
         font-size: 40px;
     }
     .fa-chevron-left{
-        left: 0;
+        left: 50px;
     }
     .fa-chevron-right{
-        right: 0;
+        right: 50px;
     }
 `;
 
