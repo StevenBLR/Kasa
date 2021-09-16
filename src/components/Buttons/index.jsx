@@ -36,11 +36,13 @@ class Buttons extends Component {
                     <div>
                         <input
                             type="checkbox"
-                            class="button__check-box"
+                            className="button__check-box"
                             onClick={action}
                         ></input>
                         <i
-                            class={`fas fa-chevron-${state ? 'up' : 'down'}`}
+                            className={`fas fa-chevron-${
+                                state ? 'up' : 'down'
+                            }`}
                         ></i>
                     </div>
                 )}

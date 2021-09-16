@@ -45,8 +45,8 @@ class Dropdown extends Component {
                         {/* Switch en fonction txt ou Obj */}
                         {typeof content == 'object' ? (
                             <ul>
-                                {content.map((c) => (
-                                    <li>{c}</li>
+                                {content.map((c, index) => (
+                                    <li key={`equipment_${index}`}>{c}</li>
                                 ))}
                             </ul>
                         ) : (

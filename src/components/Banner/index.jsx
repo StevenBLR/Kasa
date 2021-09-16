@@ -2,7 +2,6 @@ import { Component } from 'react';
 import styled from 'styled-components';
 
 // PROPS ----------------------------------------------------------
-// id : Identifiant de la banner
 // message : Texte affiche sur la banner
 // image : Image affichée sur la banner
 // height : Hauteur de la bannière

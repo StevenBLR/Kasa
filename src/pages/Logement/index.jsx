@@ -52,18 +52,15 @@ export class Logement extends Component {
                                     icon="fas fa-chevron-left"
                                     id="banner__btn-left"
                                     action={this.previousImg}
-                                    onClick={() => this.previousImg}
                                 />
                                 <Button
                                     icon="fas fa-chevron-right"
                                     id="banner__btn-right"
                                     action={this.nextImg}
-                                    onClick={() => this.nextImg}
                                 />
                             </div>
                         )}
                     </Banner>
-                    {/* <Carousel pictures={dataSet.pictures} height="415" /> */}
                     <div className="lgmt__infos">
                         <div className="lgmt__left-bloc">
                             <h1 className="lgmt__title">{dataSet.title}</h1>

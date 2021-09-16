@@ -20,7 +20,9 @@ export class RatingStars extends Component {
         for (let i = 0; i < totalStars; i++) {
             starsBloc.push(
                 <i
-                    class={`fas fa-star star ${i < startValue ? 'on' : 'off'}`}
+                    className={`fas fa-star star ${
+                        i < startValue ? 'on' : 'off'
+                    }`}
                 ></i>
             );
         }
