@@ -1,7 +1,8 @@
-import { Children, Component } from 'react';
+import { Component } from 'react';
 import styled from 'styled-components';
 
 // PROPS ----------------------------------------------------------
+// id : Identifiant de la banner
 // message : Texte affiche sur la banner
 // image : Image affichée sur la banner
 // height : Hauteur de la bannière
@@ -13,10 +14,10 @@ class Banner extends Component {
         this.state = {};
     }
     render() {
-        const { message, image, height = 180, filter = 0 } = this.props;
+        const { message, image, height = 180, filter = 0, id } = this.props;
         return (
             <BannerStyled
-                className="banner"
+                className={`banner ${id}`}
                 image={image}
                 height={height}
                 filter={filter}

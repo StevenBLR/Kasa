@@ -30,6 +30,10 @@ const responsive = `
 
 // Mobile version -------------------------------------------------------------------------
 @media (max-width: 800px) {
+
+  body {
+    margin: 20px 15px;
+  }
   .header .header__logo{
     width: 20vw;
     min-width: 120px;
@@ -59,6 +63,56 @@ const responsive = `
     height: 110px;
     border-radius: 10px;
   }
+
+  // Page logement -----------------------------------------------------------------------------
+  #root .lgmt__dropdowns{
+    flex-direction: column;
+    min-height: unset;
+  }
+  
+  .lgmt__infos{
+    flex-direction: column;
+  }
+
+  .lgmt-banner{
+    margin-top: 20px;
+  }
+
+  .lgmt-banner .banner__bgImg{
+    height: 255px;
+    border-radius: 10px;
+  }
+
+  .lgmt__dropdowns .dropdown{
+    width: 100%;
+  }
+
+  .dropdown .dropdown__label p{
+    font-size: 13px;
+  }
+
+  .dropdown .dropdown__label{
+    height: 35px;
+  }
+
+  .dropdown .dropdown__content{
+    padding: 5px 20px;
+  }
+
+  .dropdown .dropdown__content p, .dropdown .dropdown__content li{
+    font-size: 12px;
+  }
+  .lgmt__infos .lgmt__right-bloc{
+    margin-top: 10px;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  .rating-stars .star{
+    margin: unset;
+    margin-right: 5px;
+    font-size: clamp(12px,4.5vw,24px);
+  }
+  
 }
 `;
 

@@ -13,27 +13,22 @@ export class Logement extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataSet: datas.find((d) => d.id == this.props.match.params.id),
+            dataSet:
+                datas.find((d) => d.id == this.props.match.params.id) || null,
             currentImgIndex: 0,
         };
     }
 
     previousImg = () => {
-        console.log('Current state', this.state.currentImgIndex);
-
         if (this.state.currentImgIndex == 0) {
             this.setState({
                 currentImgIndex: this.state.dataSet.pictures.length - 1,
             });
         } else
             this.setState({ currentImgIndex: this.state.currentImgIndex - 1 });
-
-        console.log('Next state', this.state.currentImgIndex);
     };
 
     nextImg = () => {
-        console.log('Current state', this.state.currentImgIndex);
-
         if (
             this.state.currentImgIndex ==
             this.state.dataSet.pictures.length - 1
@@ -41,21 +36,16 @@ export class Logement extends Component {
             this.setState({ currentImgIndex: 0 });
         } else
             this.setState({ currentImgIndex: this.state.currentImgIndex + 1 });
-
-        console.log('Next state', this.state.currentImgIndex);
     };
 
     render() {
         const { dataSet } = this.state;
-        // If lgmt id is found
-        if (datas.find((d) => d.id == this.props.match.params.id)) {
-            // const dataSet = datas.find(
-            //     (d) => d.id == this.props.match.params.id
-            // );
+
+        if (dataSet != null) {
             let currentImg = dataSet.pictures[this.state.currentImgIndex];
             return (
                 <LgmtStyled>
-                    <Banner image={currentImg} height="415">
+                    <Banner image={currentImg} height="415" id="lgmt-banner">
                         {dataSet.pictures.length > 1 && (
                             <div className="banner__buttons">
                                 <Button
@@ -154,6 +144,9 @@ const styleRightBloc = `
         flex-direction: column;
         justify-content: space-between;
         align-items: end;
+    }
+    .lgmt__tags{
+        flex-wrap: wrap;
     }
     .lgmt__profil-section {
         display: flex;
