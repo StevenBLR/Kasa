@@ -27,7 +27,11 @@ class Buttons extends Component {
         } = this.props;
 
         return (
-            <ButtonStyled className={type} titleColor={titleColor}>
+            <ButtonStyled
+                className={type}
+                titleColor={titleColor}
+                onClick={action}
+            >
                 {type == 'toggle' && (
                     <div>
                         <input
