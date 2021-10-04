@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/StevenBELAIR_11_29082021/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/StevenBELAIR_11_29082021/static/js/main.7f669c51.chunk.js",
+    "main.js.map": "/StevenBELAIR_11_29082021/static/js/main.7f669c51.chunk.js.map",
+    "runtime-main.js": "/StevenBELAIR_11_29082021/static/js/runtime-main.f4157af9.js",
+    "runtime-main.js.map": "/StevenBELAIR_11_29082021/static/js/runtime-main.f4157af9.js.map",
+    "static/js/2.9e5d92fc.chunk.js": "/StevenBELAIR_11_29082021/static/js/2.9e5d92fc.chunk.js",
+    "static/js/2.9e5d92fc.chunk.js.map": "/StevenBELAIR_11_29082021/static/js/2.9e5d92fc.chunk.js.map",
+    "static/js/3.fbb4cc3f.chunk.js": "/StevenBELAIR_11_29082021/static/js/3.fbb4cc3f.chunk.js",
+    "static/js/3.fbb4cc3f.chunk.js.map": "/StevenBELAIR_11_29082021/static/js/3.fbb4cc3f.chunk.js.map",
+    "index.html": "/StevenBELAIR_11_29082021/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/StevenBELAIR_11_29082021/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.9e5d92fc.chunk.js.LICENSE.txt": "/StevenBELAIR_11_29082021/static/js/2.9e5d92fc.chunk.js.LICENSE.txt",
+    "static/media/LOGO.a6101328.svg": "/StevenBELAIR_11_29082021/static/media/LOGO.a6101328.svg",
+    "static/media/about_bannerImg.fce6fc3e.png": "/StevenBELAIR_11_29082021/static/media/about_bannerImg.fce6fc3e.png",
+    "static/media/bannerImg.efc1935e.png": "/StevenBELAIR_11_29082021/static/media/bannerImg.efc1935e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4157af9.js",
+    "static/js/2.9e5d92fc.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.7f669c51.chunk.js"
+  ]
+}
