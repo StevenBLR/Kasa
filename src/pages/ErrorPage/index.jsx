@@ -2,8 +2,6 @@ import { Component } from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 
-const TitleStyled = styled.h1``;
-
 const MessageStyled = styled.div`
     display: flex;
     flex-direction: column;

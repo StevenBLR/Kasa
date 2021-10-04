@@ -20,7 +20,6 @@ class Buttons extends Component {
         const {
             type = 'button',
             icon,
-            id,
             state,
             titleColor = 'white',
             action,
@@ -32,7 +31,7 @@ class Buttons extends Component {
                 titleColor={titleColor}
                 onClick={action}
             >
-                {type == 'toggle' && (
+                {type === 'toggle' && (
                     <div>
                         <input
                             type="checkbox"
@@ -46,7 +45,7 @@ class Buttons extends Component {
                         ></i>
                     </div>
                 )}
-                {type == 'button' && <i className={icon} onClick={action}></i>}
+                {type === 'button' && <i className={icon} onClick={action}></i>}
             </ButtonStyled>
         );
     }

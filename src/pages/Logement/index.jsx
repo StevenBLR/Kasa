@@ -14,13 +14,13 @@ export class Logement extends Component {
         super(props);
         this.state = {
             dataSet:
-                datas.find((d) => d.id == this.props.match.params.id) || null,
+                datas.find((d) => d.id === this.props.match.params.id) || null,
             currentImgIndex: 0,
         };
     }
 
     previousImg = () => {
-        if (this.state.currentImgIndex == 0) {
+        if (this.state.currentImgIndex === 0) {
             this.setState({
                 currentImgIndex: this.state.dataSet.pictures.length - 1,
             });
@@ -30,7 +30,7 @@ export class Logement extends Component {
 
     nextImg = () => {
         if (
-            this.state.currentImgIndex ==
+            this.state.currentImgIndex ===
             this.state.dataSet.pictures.length - 1
         ) {
             this.setState({ currentImgIndex: 0 });
