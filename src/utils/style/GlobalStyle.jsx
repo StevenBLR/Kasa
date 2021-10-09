@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
 const base = `
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
  *{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
