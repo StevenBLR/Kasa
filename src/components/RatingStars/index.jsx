@@ -23,6 +23,7 @@ export class RatingStars extends Component {
                     className={`fas fa-star star ${
                         i < startValue ? 'on' : 'off'
                     }`}
+                    key={`star_${i}/${totalStars}`}
                 ></i>
             );
         }
