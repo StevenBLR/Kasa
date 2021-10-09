@@ -13,10 +13,18 @@ export class Logement extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            // Passer dans componentDidMount -----------------------
+            dataSet: null,
+        };
+    }
+
+    // Fetch etat using componentDidMount ---------------------------
+    componentDidMount() {
+        this.setState({
             dataSet:
                 datas.find((d) => d.id === this.props.match.params.id) || null,
             currentImgIndex: 0,
-        };
+        });
     }
 
     previousImg = () => {

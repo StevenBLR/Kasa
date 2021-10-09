@@ -14,9 +14,16 @@ class Dropdown extends Component {
         super(props);
         this.state = {
             // Edition de is open au montage ( 1ere fois ) / soit valeur entrée, soit false par defaut
-            isOpened: this.props.openOnStart || false,
+            isOpened: undefined,
         };
     }
+
+    componentDidMount() {
+        this.setState({
+            isOpened: this.props.openOnStart || false,
+        });
+    }
+
     // Change l'etat du dropdown (Ouvert / Ferme)
     toggleDropdown = () => {
         this.setState({ isOpened: !this.state.isOpened });
